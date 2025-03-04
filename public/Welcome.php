@@ -10,7 +10,7 @@
     <div class="container text-center">
         <div class="row justify-content-center">
         <div class="col-md-6">
-            <p class="lead">Jose PHP Framework 🚀</p>
+            <p class="lead">Sms HR1</p>
             <h5 class="mb-1">Congratulations! Your application is up and running you may now start creating.</h5>
         </div>
         </div>

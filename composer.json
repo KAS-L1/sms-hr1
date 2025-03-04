@@ -1,9 +1,8 @@
 {
-    "name": "jose/phpframework",
+    "name": "sms/hr1",
     "authors": [
         {
-            "name": "Jay Melendrez",
-            "email": "joerge30@gmail.com"
+            "name": "sms"
         }
     ],
     "require": {
