@@ -1,0 +1,12 @@
+{
+    "name": "jose/phpframework",
+    "authors": [
+        {
+            "name": "Jay Melendrez",
+            "email": "joerge30@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
