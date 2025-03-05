@@ -32,9 +32,9 @@ switch ($PAGE) {
 
 // PROTECTED ROUTE ****************************************
 
-//require_once("api/auth/auth.php"); // AUTHENTICATED USER
-//require_once("page/_utils/app.php"); // APPLICATION UTILITY FUNCTIONS
-//require_once("page/_component/app.php"); // APPLICATION COMPONENTS
+require_once("api/auth/auth.php"); // AUTHENTICATED USER
+require_once("page/_utils/app.php"); // APPLICATION UTILITY FUNCTIONS
+require_once("page/_component/app.php"); // APPLICATION COMPONENTS
 
 // DASHBOARD ****************************************
 include_once("page/_template/Header.php");

@@ -151,7 +151,7 @@ function Password($name, $value = null, $placeholder = null, $class = null, $att
 			.toggle-password {
 				position: absolute;
 				top: 50%;
-				right: 5px;
+				right: 0.9rem;
 				transform: translateY(-50%);
 				cursor: pointer;
 			}
@@ -180,12 +180,12 @@ function Password($name, $value = null, $placeholder = null, $class = null, $att
 				const icon = button.querySelector('i');
 				if (input.type == "password") {
 					input.type = 'text';
-					icon.classList.remove('bi bi-eye');
-					icon.classList.add('bi bi-eye-slash');
+					icon.classList.remove('bi-eye-slash');
+					icon.classList.add('bi-eye');
 				} else {
 					input.type = 'password';
-					icon.classList.remove('bi bi-eye-slash');
-					icon.classList.add('bi bi-eye');
+					icon.classList.remove('bi-eye');
+					icon.classList.add('bi-eye-slash');
 				}
 			}
 		</script>

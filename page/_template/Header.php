@@ -31,7 +31,7 @@
         crossorigin="anonymous" />
     <!--end::Third Party Plugin(Bootstrap Icons)-->
     <!--begin::Required Plugin(AdminLTE)-->
-    <link rel="stylesheet" href="../assets/css/adminlte.css" />
+    <link rel="stylesheet" href="<?=DOMAIN?>/assets/css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
     <!-- apexcharts -->
     <link
@@ -53,10 +53,10 @@
     <!--begin::App Wrapper-->
     <div class="app-wrapper">
         <!--begin::Header-->
-        <nav class="app-header navbar navbar-expand bg-body">
-            <!--begin::Container-->
-            <div class="container-fluid">
+        
+        <?php include_once('page/_component/Topbar.php'); ?>
 
-                <?php include_once('page/_component/Topbar.php'); ?>
+        <?php include_once('page/_component/Sidebar.php'); ?>
 
-                <?php include_once('page/_component/Sidebar.php'); ?>
+        <main class="app-main">
+            

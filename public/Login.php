@@ -1,9 +1,13 @@
-    <?php include_once("public/_template/Header.php") ?>
+<?php include_once("public/_template/Header.php") ?>
 
-    <?php if (!isset($_GET['type']) || !in_array($_GET['type'], ['student', 'teacher', 'admin'])) {
+<?php 
+    if (!isset($_GET['type']) || !in_array($_GET['type'], ['student', 'teacher', 'admin'])) {
         Redirect(Route('home?action=invalid-type'));
-    } ?>
+    } 
+?>
 
+<div class="container">
+    
     <div class="row min-vh-100 flex items-center w-100">
         <div class="col-md-4 offset-md-4">
             <img src="<?= APP_LOGO ?>" alt="College Logo" class="mx-auto d-block mb-3" style="width: 80px;">
@@ -15,9 +19,9 @@
                 <input type="hidden" name="type" value="<?= CHAR($_GET['type']) ?>">
                 <div class="mb-3">
                     <?php if ($_GET['type'] == "student") { ?>
-                        <?= Input("text", "student_id", null, "Enter Student ID", "form-control-lg") ?>
+                        <?= Input("text", "student_id",  "STD-", "Enter Student ID", "form-control-lg") ?>
                     <?php } else if ($_GET['type'] == "teacher") { ?>
-                        <?= Input("text", "teacher_id", null, "Enter Teacher ID", "form-control-lg") ?>
+                        <?= Input("text", "teacher_id", "TCH-", "Enter Teacher ID", "form-control-lg") ?>
                     <?php } else if ($_GET['type'] == "admin") { ?>
                         <?= Input("text", "username", null, "Enter Admin Username", "form-control-lg") ?>
                     <?php } ?>
@@ -36,5 +40,6 @@
         </div>
     </div>
 
+</div>
 
     <?php include_once("public/_template/Footer.php") ?>

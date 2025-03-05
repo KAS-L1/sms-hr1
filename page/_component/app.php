@@ -1,5 +1,7 @@
 <?php
 
+define("USER_IMAGE", DOMAIN."/upload/user/".AUTH_USER['image']);
+
 function Loading($text = null){
     ?>
         <div class="d-flex justify-content-center py-2">

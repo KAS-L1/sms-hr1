@@ -15,14 +15,14 @@ if ($_POST) {
 
     if($type == "student"){
         if (empty($student_id)) die(Toast("error", "Student ID is empty"));
-        $user = $DB->SELECT_ONE_WHERE("users", "*", ["user_id = $student_id"]);
+        $user = $DB->SELECT_ONE_WHERE("users", "*", ["user_id" => $student_id]);
     }
     else if ($type == "teacher") {
         if (empty($teacher_id)) die(Toast("error", "Teacher ID is empty"));
-        $user = $DB->SELECT_ONE_WHERE("users", "*", ["user_id = $teacher_id"]);
+        $user = $DB->SELECT_ONE_WHERE("users", "*", ["user_id" => $teacher_id]);
     }
     else if ($type == "admin") {
-        $user = $DB->SELECT_ONE_WHERE("users", "*", ["username = $username "]);
+        $user = $DB->SELECT_ONE_WHERE("users", "*", ["username" => $username]);
     }
 
     if (empty($password)) die(Toast("error", "Password is empty"));
