@@ -171,7 +171,7 @@ function Password($name, $value = null, $placeholder = null, $class = null, $att
 				class="toggle-password py-2 px-1" 
 				onclick="togglePasswordVisibility('<?=$name?>', this)"
 			>
-				<i class="icon-eye-off"></i>
+				<i class="bi bi-eye-slash"></i>
 			</span>
 		</div>
 		<script>
@@ -180,12 +180,12 @@ function Password($name, $value = null, $placeholder = null, $class = null, $att
 				const icon = button.querySelector('i');
 				if (input.type == "password") {
 					input.type = 'text';
-					icon.classList.remove('icon-eye-off');
-					icon.classList.add('icon-eye1');
+					icon.classList.remove('bi bi-eye');
+					icon.classList.add('bi bi-eye-slash');
 				} else {
 					input.type = 'password';
-					icon.classList.remove('icon-eye1');
-					icon.classList.add('icon-eye-off');
+					icon.classList.remove('bi bi-eye-slash');
+					icon.classList.add('bi bi-eye');
 				}
 			}
 		</script>

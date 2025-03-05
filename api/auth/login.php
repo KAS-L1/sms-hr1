@@ -5,29 +5,33 @@
 CSRF('verify');
 
 // Check if the request is POST
-if (isset($_POST['username']) AND isset($_POST['password'])) {
+if ($_POST) {
     
-    $username = $DB->ESCAPE(VALID_STRING($_POST['username']));
+    $student_id = $DB->ESCAPE($_POST['student_id'] ?? '');
+    $teacher_id = $DB->ESCAPE($_POST['teacher_id'] ?? '');
+    $username = $DB->ESCAPE($_POST['username'] ?? '');
+    $type = $DB->ESCAPE($_POST['type'] ?? '');
     $password = VALID_PASS($_POST['password']);
 
-    if (empty($username) || empty($password)) {
-        die(Toast("error", "Email or password empty"));
+    if($type == "student"){
+        if (empty($student_id)) die(Toast("error", "Student ID is empty"));
+        $user = $DB->SELECT_ONE_WHERE("users", "*", ["user_id = $student_id"]);
+    }
+    else if ($type == "teacher") {
+        if (empty($teacher_id)) die(Toast("error", "Teacher ID is empty"));
+        $user = $DB->SELECT_ONE_WHERE("users", "*", ["user_id = $teacher_id"]);
+    }
+    else if ($type == "admin") {
+        $user = $DB->SELECT_ONE_WHERE("users", "*", ["username = $username "]);
     }
 
-    // Fetch user from the database
-    $user = $DB->SELECT_ONE("users", "*", "WHERE username = '$username' OR email = '$username'");
+    if (empty($password)) die(Toast("error", "Password is empty"));
 
-    if (empty($user)) die(Toast("error", "Oops! email is invalid"));
+    if (empty($user)) die(Toast("error", "Oops! is invalid account"));
     
     // Verify password
     if (!VERIFY_PASSWORD($password, $user['password'])) {
         die(Toast("error", "Incorrect password"));
-    }
-
-    if ($user['status'] == "Inactive")die(Toast("error", "Oops! account is inactive"));
-    
-    if($user['status'] == 'Pending'){
-        $DB->UPDATE("users", ["status" => "Active"], ["user_id" => $user['user_id']]);
     }
 
     // Generate JWT
@@ -35,25 +39,29 @@ if (isset($_POST['username']) AND isset($_POST['password'])) {
     $user_token = $jwt->createToken([
         "user_id"  => $user['user_id'],
         "username" => $user['username'],
-        "email"    => $user['email']
+        "email"    => $user['email'],
+        "role" => $type
     ]);
 
     // Set cookie
     $expiry = strtotime('+1 month');
     if (!setcookie("_xsrf-token", $user_token, $expiry, "/"))
         die(Toast("error", "Failed to set cookie"));
-    
-    if($user['remark'] == "Update Password"){
-        $userData = ["remark" => 'Login', "last_login" => DATE_TIME];
-    }else{
-        $userData = ["last_login" => DATE_TIME];
-    }
 
-    $DB->UPDATE("users", $userData, ["user_id" => $user['user_id']]);
+    $DB->UPDATE("users", ["last_login" => DATE_TIME], ["user_id" => $user['user_id']]);
 
     // Login successful
     Toast("success", "Successfully logged in");
-    Redirect("/dashboard", 1000);
+
+    if($type == "student"){
+        Redirect("student", 1000);
+    }
+    else if ($type == "teacher") {
+        Redirect("teacher", 1000);
+    }
+    else if ($type == "admin") {
+        Redirect("admin", 1000);
+    }
 
 }else{
     die(Toast("error", "Invalid server request"));

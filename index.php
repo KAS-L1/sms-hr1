@@ -9,19 +9,25 @@
 $PAGE = PAGE();
 
 // REDIRECT TO DEFAULT PAGE
-if($PAGE == "index") redirect("welcome");
+if($PAGE == "index") redirect("/home");
 
 // PUBLIC ROUTE ****************************************
 
 switch ($PAGE) {
     case "403":
         die(include_once("public/403.php"));
-    case "welcome":
-        die(include_once("public/Welcome.php"));
     case "home":
         die(include_once("public/Home.php"));
+    case "portal":
+        die(include_once("public/Portal.php"));
     case "login":
         die(include_once("public/Login.php"));
+    case "register":
+        die(include_once("public/Register.php"));
+    case "forgot":
+        die(include_once("public/Forgot.php"));
+    case "reset":
+        die(include_once("public/Reset.php"));
 }
 
 // PROTECTED ROUTE ****************************************

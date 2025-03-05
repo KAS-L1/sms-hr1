@@ -5,13 +5,13 @@
 **/
 
 // DETAILS
-define("APP_NAME", "My App");
-define("APP_TITLE", "App Title");
+define("APP_NAME", "SMS HR1");
+define("APP_TITLE", "School Management Sys");
 define("APP_DESCRIPTION", "");
 define("APP_ICON", DOMAIN."/assets/logo/favicon.ico");
-define("APP_LOGO", DOMAIN."/assets/logo/main.png");
+define("APP_LOGO", DOMAIN."/assets/logo/logo.png");
 define("APP_LOGO_NAV", DOMAIN."/assets/logo/nav.png");
-define("APP_COPYRIGHT", "&copy; ".date('Y')." ".APP_TITLE);
+define("APP_COPYRIGHT", "&copy; ".date('Y')." ".APP_NAME);
 
 // CONTACT AND SOCIAL
 define("APP_CONTACT", array(
