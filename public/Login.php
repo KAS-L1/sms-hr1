@@ -1,46 +1,40 @@
-<?php include_once("public/_template/Header.php") ?>
+    <?php include_once("public/_template/Header.php") ?>
 
-<?php if (!isset($_GET['type']) || !in_array($_GET['type'], ['student', 'teacher', 'admin'])) {
-    Redirect(Route('home?action=invalid-type'));
-} ?>
+    <?php if (!isset($_GET['type']) || !in_array($_GET['type'], ['student', 'teacher', 'admin'])) {
+        Redirect(Route('home?action=invalid-type'));
+    } ?>
 
-<div class="row min-vh-100 flex items-center w-100">
-    <div class="col-md-4 offset-md-4">
-        <img src="<?= APP_LOGO ?>" alt="College Logo" class="mx-auto d-block mb-3" style="width: 80px;">
-        <h3 class="text-center font-bold mb-4">Login your Account as <?= CAMEL(CHAR($_GET['type'])) ?></h3>
-        <form id="formLogin">
+    <div class="row min-vh-100 flex items-center w-100">
+        <div class="col-md-4 offset-md-4">
+            <img src="<?= APP_LOGO ?>" alt="College Logo" class="mx-auto d-block mb-3" style="width: 80px;">
+            <h3 class="text-center font-bold mb-4">Login your Account as <?= CAMEL(CHAR($_GET['type'])) ?></h3>
+            <form id="formLogin">
 
-            <div id="responseLogin"></div>
-            <?= CSRF() ?>
-            <input type="hidden" name="type" value="<?= CHAR($_GET['type']) ?>">
-            <div class="mb-3">
-                <?php if ($_GET['type'] == "student") { ?>
-                    <?= Input("text", "student_id", null, "Enter Student ID", "form-control-lg") ?>
-                <?php } else if ($_GET['type'] == "teacher") { ?>
-                    <?= Input("text", "teacher_id", null, "Enter Teacher ID", "form-control-lg") ?>
-                <?php } else if ($_GET['type'] == "admin") { ?>
-                    <?= Input("text", "username", null, "Enter Admin Username", "form-control-lg") ?>
-                <?php } ?>
-            </div>
+                <div id="responseLogin"></div>
+                <?= CSRF() ?>
+                <input type="hidden" name="type" value="<?= CHAR($_GET['type']) ?>">
+                <div class="mb-3">
+                    <?php if ($_GET['type'] == "student") { ?>
+                        <?= Input("text", "student_id", null, "Enter Student ID", "form-control-lg") ?>
+                    <?php } else if ($_GET['type'] == "teacher") { ?>
+                        <?= Input("text", "teacher_id", null, "Enter Teacher ID", "form-control-lg") ?>
+                    <?php } else if ($_GET['type'] == "admin") { ?>
+                        <?= Input("text", "username", null, "Enter Admin Username", "form-control-lg") ?>
+                    <?php } ?>
+                </div>
 
-            <div class="mb-3 position-relative">
-                <?= Password("password", null, "Enter Password", "form-control-lg") ?>
-            </div>
+                <div class="mb-3 position-relative">
+                    <?= Password("password", null, "Enter Password", "form-control-lg") ?>
+                </div>
 
-            <!-- reCAPTCHA widget -->
-            <div class="g-recaptcha mb-3" data-sitekey="your-site-key"></div>
+                <!-- reCAPTCHA widget -->
+                <div class="g-recaptcha mb-3" data-sitekey="your-site-key"></div>
 
-            <?= Button("submit", "btnLogin", "Login", "primary", null, true) ?>
+                <?= Button("submit", "btnLogin", "Login", "primary", null, true) ?>
 
-            <div class="py-5">
-                <a href="<?= Route('forgot') ?>" class="d-block mt-2 text-muted text-center">Forgot Password?</a>
-                <!-- Register link -->
-                <a href="<?= Route('register') . '?type=' . htmlspecialchars($_GET['type']) ?>" class="d-block mt-2 text-muted text-center">Don't have an account? Register here</a>
-            </div>
-
-        </form>
+            </form>
+        </div>
     </div>
-</div>
 
 
-<?php include_once("public/_template/Footer.php") ?>
+    <?php include_once("public/_template/Footer.php") ?>
