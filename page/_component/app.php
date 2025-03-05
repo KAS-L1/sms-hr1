@@ -23,3 +23,50 @@ function BreadCrumb(array $items){
     echo $html;
 }
 
+function NavItem($level) {
+    // Check if URL is set, otherwise default to '#'
+    $url = isset($level['url']) ? $level['url'] : '#';
+    
+    // Check if an icon is specified for the main level, otherwise use a default icon (bi-circle)
+    $icon = isset($level['icon']) ? $level['icon'] : 'bi bi-circle';  // Default to bi-circle
+    
+    // Define the base structure for the nav item
+    $navHTML = '<li class="nav-item">
+                    <a href="' . $url . '" class="nav-link">';
+    
+    // Add the custom icon for the main level
+    $navHTML .= '<i class="nav-icon ' . $icon . '"></i>';  // Use the passed icon or default
+    $navHTML .= '<p>' . $level['label'];
+
+    // If there are children (sub-levels), add a dropdown icon
+    if (isset($level['children']) && !empty($level['children'])) {
+        $navHTML .= ' <i class="nav-arrow bi bi-chevron-right"></i>';
+    }
+
+    $navHTML .= '</p></a>';
+                    
+    // Check if there are sub-items (children) and render them if present
+    if (isset($level['children']) && !empty($level['children'])) {
+        $navHTML .= '<ul class="nav nav-treeview">';
+        foreach ($level['children'] as $child) {
+            $childUrl = isset($child['url']) ? $child['url'] : '#'; // Default URL for children
+            $childIcon = isset($child['icon']) ? $child['icon'] : 'bi bi-circle'; // Default child icon
+            
+            // Render the child item with its icon
+            $navHTML .= '<li class="nav-item">
+                            <a href="' . $childUrl . '" class="nav-link">
+                                <i class="nav-icon ' . $childIcon . '"></i> <!-- Child icon -->
+                                <p>' . $child['label'] . '</p>
+                            </a>
+                          </li>';
+        }
+        $navHTML .= '</ul>';
+    }
+
+    // Close the main list item
+    $navHTML .= '</li>';
+    
+    return $navHTML;
+}
+
+
