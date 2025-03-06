@@ -93,10 +93,7 @@ class Database
 	{
         try {
             $query = "SELECT {$fields} FROM {$table} {$options} ";
-            $result = $this->DB->query($query);
-            if (!$result) {
-                throw new Exception("Cannot execute SELECT command: " . $this->DB->error);
-            }
+            $result = $this->DB->query($query) or throw new Exception("Cannot execute SELECT command: " . $this->DB->error);
             $data = $result->fetch_all(MYSQLI_ASSOC);
             return $data;
         }catch (Exception $e) {
