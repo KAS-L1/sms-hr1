@@ -54,8 +54,8 @@
                         case "Clerk":
                             include_once("page/_component/Nav_Clerk.php");
                             break;
-                        case "Proffessor":
-                            include_once("page/_component/Nav_Proffessor.php");
+                        case "Professor":
+                            include_once("page/_component/Nav_Professor.php");
                             break;
                     }
                 ?>
