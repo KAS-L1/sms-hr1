@@ -2,7 +2,6 @@
 require("../../app/init.php");
 require("../auth/auth.php");
 
-predie($_POST);
 // Validate input fields
 $firstname = $_POST['firstname'] ?? '';
 $lastname = $_POST['lastname'] ?? '';
