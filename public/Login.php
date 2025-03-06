@@ -2,7 +2,7 @@
 
 <?php 
     if (!isset($_GET['type']) || !in_array($_GET['type'], ['employee', 'admin'])) {
-        Redirect(Route('home?action=invalid-type'));
+        Redirect(ROUTE('home?action=invalid-type'));
     } 
 ?>
 

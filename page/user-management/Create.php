@@ -107,7 +107,7 @@
         e.preventDefault();
         btnLoading('#btnCreateUser');
 
-        $.post('<?= Route('api/user-management/create_user.php'); ?>', $('#formCreateUser').serialize(), function(res) {
+        $.post('<?= ROUTE('api/user-management/create_user.php'); ?>', $('#formCreateUser').serialize(), function(res) {
             $('#responseCreateUser').html(res);
             btnLoadingReset('#btnCreateUser');
         }).fail(function() {

@@ -95,7 +95,7 @@
                             <a class="nav-link" href="#">BCP News</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=Route('portal')?>">Log In</a>
+                            <a class="nav-link" href="<?=ROUTE('portal')?>">Log In</a>
                         </li>
                     </ul>
                 </div>

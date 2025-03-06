@@ -3,7 +3,7 @@
 function ViewPage($folder, $index)
 {
     global $DB;
-    $GET_PAGE = PAGE(1); // Get the page route
+    $GET_PAGE = PAGE(1); // Get the page ROUTE
     if (isset($GET_PAGE)) {
         if (VIEW('page/' . $folder . '/', $GET_PAGE) == '404') {
             include_once('page/404.php');

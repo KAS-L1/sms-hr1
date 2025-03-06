@@ -102,7 +102,7 @@
 
                                         // Send the cropped image to the server via AJAX
                                         $.ajax({
-                                            url: "<?= Route('api/user-profile/update_photo.php'); ?>", // Ensure the correct path
+                                            url: "<?= ROUTE('api/user-profile/update_photo.php'); ?>", // Ensure the correct path
                                             type: "POST",
                                             data: {
                                                 image: croppedImage // Send the base64 image to the server
@@ -190,7 +190,7 @@
                         $('#formPersonal').submit(function(e) {
                             e.preventDefault();
                             btnLoading('#btnUpdateInfo');
-                            $.post('<?= Route('api/user-profile/update_personal.php') ?>', $('#formPersonal').serialize(), function(res) {
+                            $.post('<?= ROUTE('api/user-profile/update_personal.php') ?>', $('#formPersonal').serialize(), function(res) {
                                 $('#responsePersonal').html(res);
                                 btnLoadingReset('#btnUpdateInfo');
                             })

@@ -3,7 +3,7 @@
 <?php
 // Check if 'type' is set in the URL, otherwise redirect
 if (!isset($_GET['type']) || !in_array($_GET['type'], ['employee', 'admin'])) {
-    Redirect(Route('home?action=invalid-type'));
+    Redirect(ROUTE('home?action=invalid-type'));
 }
 
 // Sanitize the 'type' parameter
@@ -43,7 +43,7 @@ $type = htmlspecialchars($_GET['type']);
             <?= Button("submit", "btnRegister", "Register", "primary", null, true) ?>
 
             <div class="py-5">
-                <a href="<?= Route('login') . '?type=' . htmlspecialchars($_GET['type']) ?>" class="d-block mt-2 text-muted text-center">Already have an account? Login here</a>
+                <a href="<?= ROUTE('login') . '?type=' . htmlspecialchars($_GET['type']) ?>" class="d-block mt-2 text-muted text-center">Already have an account? Login here</a>
             </div>
 
         </form>

@@ -1,7 +1,7 @@
 <?=
 NavItem([
     'label' => 'BCP News Update',
-    'url' => route('#'),
+    'url' => ROUTE('bcpnewsupdate'), // Assuming this is an actual route
     'icon' => 'bi bi-newspaper'
 ]);
 ?>
@@ -9,7 +9,7 @@ NavItem([
 <?=
 NavItem([
     'label' => 'Goal Target',
-    'url' => route('#'),
+    'url' => ROUTE('goal-target'), // Dummy route for Goal Target
     'icon' => 'bi bi-bullseye'
 ]);
 ?>
@@ -17,7 +17,7 @@ NavItem([
 <?=
 NavItem([
     'label' => 'Notification',
-    'url' => route('#'),
+    'url' => ROUTE('notifications'), // Dummy route for Notifications
     'icon' => 'bi bi-bell'
 ]);
 ?>
@@ -27,9 +27,7 @@ NavItem([
     'label' => 'Performance </br>Management',
     'icon' => 'bi bi-bar-chart-line',
     'children' => [
-
-        ['label' => 'Progress & </br>Performance Evaluation', 'url' => route('#'), 'icon' => 'bi bi-person-check'],
-
+        ['label' => 'Progress & </br>Performance Evaluation', 'url' => ROUTE('performance-evaluation'), 'icon' => 'bi bi-person-check'], // Dummy route
     ],
 ]);
 ?>
@@ -39,7 +37,7 @@ NavItem([
     'label' => 'Employee Relations',
     'icon' => 'bi bi-person-bounding-box',
     'children' => [
-        ['label' => ' Complaint & </br>Comment Feedback', 'url' => route('#'), 'icon' => 'bi bi-flag'],
+        ['label' => 'Complaint & </br>Comment Feedback', 'url' => ROUTE('feedback'), 'icon' => 'bi bi-flag'], // Dummy route
     ],
 ]);
 ?>

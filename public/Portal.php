@@ -9,7 +9,7 @@
                 <h3 class="text-center font-bold mb-5">Login Portal Access</h3>
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <a href="<?= Route('login?type=employee') ?>" class="card card-body text-center shadow">
+                        <a href="<?= ROUTE('login?type=employee') ?>" class="card card-body text-center shadow">
                             <div class="flex justify-center">
                                 <img src="https://img.icons8.com/?size=96&id=13042&format=png" class="" width="50">
                             </div>
@@ -18,7 +18,7 @@
                         </a>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <a href="<?= Route('login?type=admin') ?>" class="card card-body text-center shadow">
+                        <a href="<?= ROUTE('login?type=admin') ?>" class="card card-body text-center shadow">
                             <div class="flex justify-center">
                                 <img src="https://img.icons8.com/?size=96&id=13042&format=png" class="" width="50">
                             </div>

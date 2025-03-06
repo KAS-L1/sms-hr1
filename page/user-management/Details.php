@@ -99,7 +99,7 @@ $user = $DB->SELECT_ONE_WHERE("users", "*", ["user_id" => $get_user_id]);
         btnLoading('#btnUpdateUser');
 
         // Submit the form data via AJAX
-        $.post('<?= Route('api/user-management/update_user.php'); ?>', $('#formEditUser').serialize(), function(res) {
+        $.post('<?= ROUTE('api/user-management/update_user.php'); ?>', $('#formEditUser').serialize(), function(res) {
             $('#responseUpdateUser').html(res);
             btnLoadingReset('#btnUpdateUser');
         }).fail(function() {

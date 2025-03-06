@@ -5,7 +5,7 @@ $users = $DB->SELECT("users", "*", "ORDER BY created_at DESC");
 <div class="card">
     <div class="card-body">
         <div>
-            <a href="<?= Route('user-management/create') ?>" type="button" class="btn btn-primary">
+            <a href="<?= ROUTE('user-management/create') ?>" type="button" class="btn btn-primary">
                 <i class="bi bi-plus"></i> Add User
             </a>
         </div>
@@ -29,7 +29,7 @@ $users = $DB->SELECT("users", "*", "ORDER BY created_at DESC");
                 foreach ($users as $user) { ?>
                     <tr>
                         <td class="text-start">
-                            <a href="<?= Route('user-management/details?uid=' . $user['user_id']) ?>" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+                            <a href="<?= ROUTE('user-management/details?uid=' . $user['user_id']) ?>" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
                         </td>
                         <td class="text-start"><?= $user['user_id'] ?></td>
                         <td class="text-start">
