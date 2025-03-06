@@ -17,7 +17,7 @@ define("DATE_TIME", date("Y-m-d H:i:s"));
 
 
 // DEPLOYMENT SETTINGS
-define("DOMAIN", "//" . $_SERVER["HTTP_HOST"]);
+define("DOMAIN", "//" . $_SERVER["HTTP_HOST"].'/sms-hr1');
 
 
 // INCLUDE SETTINGS

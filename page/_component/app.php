@@ -2,8 +2,13 @@
 
 define("USER_IMAGE", DOMAIN."/upload/user/".AUTH_USER['image']);
 
+
 function UserImage($user){
     return DOMAIN."/upload/user/".$user;
+}
+
+function UserAvatar(){
+    return '<img src='.USER_IMAGE.' class="rounded-circle" alt="user-image" />';
 }
 
 function Loading($text = null){
