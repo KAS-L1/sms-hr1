@@ -27,15 +27,26 @@ if (isset($_POST['update_user']) && $_POST['update_user'] == '1') {  // Ensure t
     $status = $_POST['status'] ?? '';
     $role = $_POST['role'] ?? '';
     $position = $_POST['position'] ?? '';
-
-    // Validate required fields
-    if (!$firstname || !$lastname || !$email || !$contact || !$age || !$gender || !$address || !$status || !$role || !$position) {
-        die(toast("error", "All fields are required."));
-    }
-
+    
     // Validate email format
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         die(toast("error", "Invalid email format."));
+    }
+
+    // Check if the submitted data is different from the current user data
+    if (
+        $firstname == $user['firstname'] &&
+        $lastname == $user['lastname'] &&
+        $email == $user['email'] &&
+        $contact == $user['contact'] &&
+        $age == $user['age'] &&
+        $gender == $user['gender'] &&
+        $address == $user['address'] &&
+        $status == $user['status'] &&
+        $role == $user['role'] &&
+        $position == $user['position']
+    ) {
+        die(toast("info", "No changes were made to the user details."));
     }
 
     // Start a transaction
