@@ -12,7 +12,7 @@ if ($_POST) {
     $password = VALID_PASS($_POST['password']);
 
   
-    if ($type == "teacher") {
+    if ($type == "employee") {
         if (empty($username)) die(Toast("error", "Employee ID is empty"));
         $user = $DB->SELECT_ONE_WHERE("users", "*", ["user_id" => $username]);
     }

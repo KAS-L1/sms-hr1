@@ -2,7 +2,7 @@
 
 <?php
 // Check if 'type' is set in the URL, otherwise redirect
-if (!isset($_GET['type']) || !in_array($_GET['type'], ['student', 'teacher', 'admin'])) {
+if (!isset($_GET['type']) || !in_array($_GET['type'], ['employee', 'admin'])) {
     Redirect(Route('home?action=invalid-type'));
 }
 

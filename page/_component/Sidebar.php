@@ -38,15 +38,24 @@
                 data-accordion="false">
                 
                 <?php
-                    switch (AUTH_USER['role']) {
+                    switch (AUTH_USER['position']) {
                         case "Admin":
                             include_once("page/_component/Nav_Admin.php");
                             break;
-                        case "Teacher":
-                            include_once("page/_component/Nav_Teacher.php");
+                        case "Cashier":
+                            include_once("page/_component/Nav_Cashier.php");
                             break;
-                        case "Student":
-                            include_once("page/_component/Nav_Student.php");
+                        case "Clerk":
+                            include_once("page/_component/Nav_Clerk.php");
+                            break;
+                        case "Proffessor":
+                            include_once("page/_component/Nav_Proffessor.php");
+                            break;
+                        case "Staff":
+                            include_once("page/_component/Nav_Staff.php");
+                            break;
+                        case "Manager":
+                            include_once("page/_component/Nav_Manager.php");
                             break;
                     }
                 ?>

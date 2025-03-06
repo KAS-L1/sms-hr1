@@ -1,7 +1,7 @@
 <?php include_once("public/_template/Header.php") ?>
 
 <?php 
-    if (!isset($_GET['type']) || !in_array($_GET['type'], ['student', 'teacher', 'admin'])) {
+    if (!isset($_GET['type']) || !in_array($_GET['type'], ['employee', 'admin'])) {
         Redirect(Route('home?action=invalid-type'));
     } 
 ?>
