@@ -51,7 +51,7 @@ try {
         die(toast("error", "Username already taken."));
     }
 
-    $user_id = ($role == 'Admin') ? GENERATE_ID('11', 4) : GENERATE_ID('EMP', 4);
+    $user_id = ($role == 'Admin') ? GENERATE_ID('11', 4) : GENERATE_ID('EMP-', 4);
 
     // Insert user data
     $user_data = [
