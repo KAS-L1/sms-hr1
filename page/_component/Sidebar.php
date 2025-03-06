@@ -57,6 +57,9 @@
                         case "Professor":
                             include_once("page/_component/Nav_Professor.php");
                             break;
+                        case "Guard":
+                            include_once("page/_component/Nav_Guard.php");
+                            break;
                     }
                 ?>
 
