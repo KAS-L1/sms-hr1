@@ -16,11 +16,6 @@ $position = $_POST['position'] ?? '';
 $password = $_POST['password'] ?? '';
 $confirmPassword = $_POST['confirmPassword'] ?? '';
 
-// Validate required fields
-if (!$firstname || !$lastname || !$username || !$email || !$contact || !$age || !$gender || !$role || !$position || !$password || !$confirmPassword) {
-    die(toast("error", "All fields are required."));
-}
-
 // Validate role
 $allowed_roles = ['Admin', 'Employee'];
 if (!in_array($role, $allowed_roles)) {
