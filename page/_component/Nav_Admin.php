@@ -88,3 +88,11 @@ NavItem([
     ],
 ]);
 ?>
+
+<?=
+NavItem([
+    'label' => 'Users Management',
+    'url' => route('/user-management'),
+    'icon' => 'bi bi-person-lines-fill'
+]);
+?>

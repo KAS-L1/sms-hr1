@@ -2,6 +2,10 @@
 
 define("USER_IMAGE", DOMAIN."/upload/user/".AUTH_USER['image']);
 
+function UserImage($user){
+    return DOMAIN."/upload/user/".$user;
+}
+
 function Loading($text = null){
     ?>
         <div class="d-flex justify-content-center py-2">
@@ -22,6 +26,54 @@ function BreadCrumb(array $items){
     $html .= "</ol>";
     echo $html;
 }
+
+function BadgeStatus($status)
+{
+    switch ($status) {
+        case 'Pending':
+        case 'Draft':
+        case 'UPDATE':
+            $classes = 'bg-warning'; // Bootstrap 5 warning background class
+            break;
+        case 'Approved':
+        case 'Finalized':
+            $classes = 'bg-success'; // Bootstrap 5 primary background class
+            break;
+        case 'Rejected':
+        case 'Declined':
+        case 'Inactive':
+        case 'Closed':
+        case 'Expired':
+        case 'High':
+        case 'Cancelled':
+        case 'Critical':
+        case 'DELETE':
+            $classes = 'bg-danger'; // Bootstrap 5 danger background class
+            break;
+        case 'Low':
+        case 'In Progress':
+            $classes = 'bg-warning'; // Bootstrap 5 warning background class
+            break;
+        case 'Active':
+        case 'Open':
+        case 'Awarded':
+        case 'Accepted':
+        case 'Renewed':
+        case 'Signed':
+        case 'Delivered':
+        case 'Completed':
+        case 'Paid':
+        case 'INSERT':
+            $classes = 'bg-success'; // Bootstrap 5 primary background class
+            break;
+        default:
+            $classes = 'bg-secondary'; // Bootstrap 5 secondary background class
+    }
+
+    // Return the badge HTML with the appropriate background classes
+    return '<span class="badge ' . $classes . '">' . htmlspecialchars($status, ENT_QUOTES, 'UTF-8') . '</span>';
+}
+
 
 function NavItem($level) {
     // Check if URL is set, otherwise default to '#'
