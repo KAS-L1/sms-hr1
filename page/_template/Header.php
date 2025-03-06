@@ -32,6 +32,7 @@
     <!--end::Third Party Plugin(Bootstrap Icons)-->
     <!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="<?=DOMAIN?>/assets/css/adminlte.css" />
+    <link rel="stylesheet" href="<?=DOMAIN?>/page/_component/app.css" />
     <!--end::Required Plugin(AdminLTE)-->
     <!-- apexcharts -->
     <link

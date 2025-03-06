@@ -7,19 +7,14 @@ CSRF('verify');
 // Check if the request is POST
 if ($_POST) {
     
-    $student_id = $DB->ESCAPE($_POST['student_id'] ?? '');
-    $teacher_id = $DB->ESCAPE($_POST['teacher_id'] ?? '');
     $username = $DB->ESCAPE($_POST['username'] ?? '');
     $type = $DB->ESCAPE($_POST['type'] ?? '');
     $password = VALID_PASS($_POST['password']);
 
-    if($type == "student"){
-        if (empty($student_id)) die(Toast("error", "Student ID is empty"));
-        $user = $DB->SELECT_ONE_WHERE("users", "*", ["user_id" => $student_id]);
-    }
-    else if ($type == "teacher") {
-        if (empty($teacher_id)) die(Toast("error", "Teacher ID is empty"));
-        $user = $DB->SELECT_ONE_WHERE("users", "*", ["user_id" => $teacher_id]);
+  
+    if ($type == "teacher") {
+        if (empty($username)) die(Toast("error", "Employee ID is empty"));
+        $user = $DB->SELECT_ONE_WHERE("users", "*", ["user_id" => $username]);
     }
     else if ($type == "admin") {
         $user = $DB->SELECT_ONE_WHERE("users", "*", ["username" => $username]);
@@ -53,11 +48,8 @@ if ($_POST) {
     // Login successful
     Toast("success", "Successfully logged in");
 
-    if($type == "student"){
-        Redirect("student", 1000);
-    }
-    else if ($type == "teacher") {
-        Redirect("teacher", 1000);
+    if ($type == "employee") {
+        Redirect($user['position'], 1000);
     }
     else if ($type == "admin") {
         Redirect("admin", 1000);

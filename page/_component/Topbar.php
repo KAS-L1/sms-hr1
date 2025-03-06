@@ -20,7 +20,7 @@
                         src="<?=USER_IMAGE?>"
                         class="user-image rounded-circle shadow-sm"
                         alt="User Image" />
-                    <span class="d-none d-md-inline"><?=AUTH_USER['firstname']?></span>
+                    <span class="d-none d-md-inline">Hi, <?=AUTH_USER['firstname']?></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                     <!--begin::User Image-->

@@ -1,5 +1,5 @@
  <!--begin::Sidebar-->
- <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
+ <aside class="app-sidebar bg-primary shadow" data-bs-theme="light">
      <!--begin::Sidebar Brand-->
      <div class="sidebar-brand">
          <!--begin::Brand Link-->
@@ -8,10 +8,10 @@
              <img
                  src="<?=APP_LOGO_NAV?>"
                  alt="AdminLTE Logo"
-                 class="brand-image opacity-75 shadow" />
+                 class="brand-image" />
              <!--end::Brand Image-->
              <!--begin::Brand Text-->
-             <span class="brand-text fw-light"><?=APP_NAME?></span>
+             <span class="brand-text fw-bold text-white"><?=APP_NAME?></span>
              <!--end::Brand Text-->
          </a>
      </div>
@@ -24,8 +24,8 @@
                 class="rounded-circle img-thumbnail"
                 alt="User Image" />
             <div>
-                <div class="text-white"><?=AUTH_USER['firstname'].' '.AUTH_USER['lastname']?></div>
-                <small class="text-muted"><?=AUTH_USER['user_id']?></small>
+                <div class="text-white fs-5 font-bold"><?=AUTH_USER['lastname'].', '.AUTH_USER['firstname']?></div>
+                <small class="text-light">ID: <?=AUTH_USER['user_id']?></small>
             </div>
             
         </div>
@@ -38,17 +38,17 @@
                 data-accordion="false">
                 
                 <?php
-                switch (AUTH_USER['role']) {
-                    case "Admin":
-                        include_once("page/_component/Nav_Admin.php");
-                        break;
-                    case "Teacher":
-                        include_once("page/_component/Nav_Teacher.php");
-                        break;
-                    case "Student":
-                        include_once("page/_component/Nav_Student.php");
-                        break;
-                }
+                    switch (AUTH_USER['role']) {
+                        case "Admin":
+                            include_once("page/_component/Nav_Admin.php");
+                            break;
+                        case "Teacher":
+                            include_once("page/_component/Nav_Teacher.php");
+                            break;
+                        case "Student":
+                            include_once("page/_component/Nav_Student.php");
+                            break;
+                    }
                 ?>
 
             </ul>
