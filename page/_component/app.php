@@ -1,8 +1,7 @@
 <?php
 
 
-define("USER_IMAGE", isset(AUTH_USER['image']) && !empty(AUTH_USER['image']) ? DOMAIN . "/upload/profile/" . AUTH_USER['image'] : DOMAIN . '/upload/user/default.png');
-
+define("USER_IMAGE", DOMAIN . '/upload/user/'.AUTH_USER['image']);
 
 function UserImage($user)
 {
@@ -12,7 +11,7 @@ function UserImage($user)
 
 function UserAvatar()
 {
-    return '<img src="' . USER_IMAGE . '" class="rounded-circle" alt="image" id="profileImage" />';
+    return '<img src="' . USER_IMAGE . '" class="rounded-circle" alt="image" />';
 }
 
 

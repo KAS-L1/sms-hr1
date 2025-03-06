@@ -13,7 +13,7 @@ if (isset($_POST['image'])) {
     $image_data = base64_decode($image_parts[1]);
 
     // Set the directory where the image will be saved
-    $upload_dir = '../../upload/profile/';
+    $upload_dir = '../../upload/user/';
 
     // Make sure the directory exists
     if (!is_dir($upload_dir)) {
