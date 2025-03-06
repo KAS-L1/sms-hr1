@@ -2,11 +2,8 @@
 require("../../app/init.php");
 require("../auth/auth.php");
 
-// Ensure CSRF protection
-csrfProtect('verify');
-
 // Check if all required POST data exists
-$requiredFields = ['username', 'email', 'address', 'contact', 'age', 'gender'];
+$requiredFields = ['username', 'email', 'address', 'contact'];
 foreach ($requiredFields as $field) {
     if (!isset($_POST[$field])) {
         die(toast('error', 'Invalid server request'));
@@ -19,17 +16,13 @@ $data = [
     "email"      => $DB->ESCAPE(VALID_MAIL($_POST['email'])),
     "address"    => $DB->ESCAPE(VALID_STRING($_POST['address'])),
     "contact"    => $DB->ESCAPE(VALID_NUMBER($_POST['contact'])),
-    "age"    => $DB->ESCAPE(VALID_NUMBER($_POST['age'])),
-    "gender"    => $DB->ESCAPE(VALID_NUMBER($_POST['gender'])),
 ];
 
 // Check if any fields have not changed
 if (
     $data['username'] == AUTH_USER['username'] &&
     $data['email'] == AUTH_USER['email'] &&
-    $data['address'] == AUTH_USER['address'] &&
-    $data['age'] == AUTH_USER['age'] &&
-    $data['gender'] == AUTH_USER['gender']
+    $data['address'] == AUTH_USER['address']
 ) {
     die(toast('error', 'No changes were made.'));
 }

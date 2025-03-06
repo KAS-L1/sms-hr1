@@ -195,7 +195,7 @@ function Password($name, $value = null, $placeholder = null, $class = null, $att
 function Button($type, $id, $text, $color, $class = null, $width = null, $attributes= null)
 {
 	?>
-		<button type="<?=$type?>" id="<?=$id?>" class="btn btn-<?=$color?> btn-lg uppercase font-bold text-lg px-4 <?=!empty($width) ? 'w-100' : '' ?> <?=$class?>" <?= $attributes?>>
+		<button type="<?=$type?>" id="<?=$id?>" class="btn btn-<?=$color?> btn-md uppercase font-bold text-lg px-4 <?=!empty($width) ? 'w-100' : '' ?> <?=$class?>" <?= $attributes?>>
 			<?= $text ?>
 		</button>
 	<?php

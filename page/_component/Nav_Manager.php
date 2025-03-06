@@ -37,7 +37,6 @@ NavItem([
     'children' => [
         ['label' => 'Job Posting', 'url' => route('#'), 'icon' => 'bi bi-briefcase'],
         ['label' => 'Applicant Tracking', 'url' => route('#'), 'icon' => 'bi bi-person-check'],
-        ['label' => 'Recruitment Reports', 'url' => route('#'), 'icon' => 'bi bi-file-earmark-bar-graph'],
     ],
 ]);
 ?>
@@ -49,7 +48,6 @@ NavItem([
     'children' => [
         ['label' => 'Onboarding Workflow', 'url' => route('#'), 'icon' => 'bi bi-arrow-right-circle'],
         ['label' => 'Orientation Scheduling', 'url' => route('#'), 'icon' => 'bi bi-calendar-check'],
-        ['label' => 'Applicant Progress Tracking', 'url' => route('#'), 'icon' => 'bi bi-bar-chart'],
     ],
 ]);
 ?>
@@ -89,3 +87,10 @@ NavItem([
 ]);
 ?>
 
+<?=
+NavItem([
+    'label' => 'Users Management',
+    'url' => route('/user-management'),
+    'icon' => 'bi bi-person-lines-fill'
+]);
+?>
