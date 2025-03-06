@@ -150,7 +150,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="lastname" class="mb-2 fw-bold">Last Name</label>
-                            <?= Input("text", "lastname", AUTH_USER['lastname'], "bg-white", "disabled") ?>
+                            <?= Input("text", "lastname", AUTH_USER['lastname'], null, "bg-white", "disabled") ?>
                         </div>
                     </div>
                     <div class="row mb-2">
