@@ -9,12 +9,11 @@ $lastname = $_POST['lastname'] ?? '';
 $username = $_POST['username'] ?? '';
 $email = $_POST['email'] ?? '';
 $address = $_POST['address'] ?? '';
-$company = $_POST['company'] ?? ''; // Optional fiea, make sure it's properly handled
 $contact = $_POST['contact'] ?? '';
 $age = $_POST['age'] ?? '';
 $gender = $_POST['gender'] ?? '';
 $role = $_POST['role'] ?? '';
-$position = $_POST['position'] ?? ''; // Position field added
+$position = $_POST['position'] ?? ''; 
 $password = $_POST['password'] ?? '';
 $confirmPassword = $_POST['confirmPassword'] ?? '';
 

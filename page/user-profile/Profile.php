@@ -1,0 +1,1 @@
+<h1>Hi <?= AUTH_USER['firstname'] ?></h1>

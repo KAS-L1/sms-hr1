@@ -37,7 +37,7 @@
 
                     <!--begin::Menu Footer-->
                     <li class="user-footer">
-                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                        <a href="<?= Route('/user-profile'); ?>" class="btn btn-default btn-flat">Profile</a>
                         <a href="<?=Route("api/auth/logout.php")?>" class="btn btn-danger btn-flat float-end">Sign out</a>
                     </li>
                     <!--end::Menu Footer-->
