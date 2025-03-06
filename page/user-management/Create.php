@@ -89,6 +89,7 @@
                                 <option value="Clerk">Clerk</option>
                                 <option value="Admin">Admin</option>
                                 <option value="Manager">Manager</option>
+                                <option value="Guard">Guard</option>
                             </select>
                         </td>
                     </tr>
