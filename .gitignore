@@ -1,4 +1,6 @@
 # Ignore vendor directory (for PHP packages)
 .env
 vendor/
-upload/profile/*
+upload/user/*
+
+!upload/user/default.png
