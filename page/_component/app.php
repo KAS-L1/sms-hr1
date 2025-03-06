@@ -9,7 +9,7 @@ function UserImage($user){
 
 function UserAvatar()
 {
-    return '<img src="' . (USER_IMAGE ? USER_IMAGE : Route('upload/user/default.png')) . '" class="rounded-circle" alt="image" id="profileImage" />';
+    return '<img src="' . (!empty(USER_IMAGE) ? USER_IMAGE : Route('upload/user/default.png')) . '" class="rounded-circle" alt="image" id="profileImage" />';
 }
 
 function Loading($text = null){
