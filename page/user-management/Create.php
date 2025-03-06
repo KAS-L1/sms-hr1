@@ -44,6 +44,12 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>Contact</td>
+                        <td>
+                            <?= Input('number', 'contact', null, null, null, 'required'); ?>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>Age</td>
                         <td>
                             <?= Input('number', 'age'); ?>

@@ -9,7 +9,7 @@
                             <?= UserAvatar() ?>
                         </div>
                         <div class="text-center mt-3">
-                            <h6 class="small font-bold text-muted"><?= AUTH_USER['user_id'] ?></h6>
+                            <h6 class="small font-bold text-muted"><?= AUTH_USER['user_id'] . ' - ' .  AUTH_USER['position'] ?></h6>
                             <h4 class="user-name"><?= AUTH_USER['firstname'] . ' ' . AUTH_USER['lastname'] ?></h4>
                             <h6 class="user-email"><?= AUTH_USER['email'] ?></h6>
                             <div class="flex justify-center mt-3" id="previewPicture">

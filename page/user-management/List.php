@@ -13,6 +13,7 @@ $users = $DB->SELECT("users", "*", "ORDER BY created_at DESC");
             <thead class="table-secondary">
                 <tr>
                     <th class="text-start">Action</th>
+                    <th class="text-start">User ID</th>
                     <th class="text-start">Username</th>
                     <th class="text-start">Name</th>
                     <th class="text-start">Email</th>
@@ -30,6 +31,7 @@ $users = $DB->SELECT("users", "*", "ORDER BY created_at DESC");
                         <td class="text-start">
                             <a href="<?= Route('user-management/details?uid=' . $user['user_id']) ?>" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
                         </td>
+                        <td class="text-start"><?= $user['user_id'] ?></td>
                         <td class="text-start">
                             <div class="d-flex align-items-center gap-2">
                                 <img src="<?= UserImage($user['image']) ?>" class="img rounded-circle" width="30" height="30">
