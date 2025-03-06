@@ -92,7 +92,7 @@
                             <a class="nav-link" href="#">About BCP</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">BCP News</a>
+                            <a class="nav-link" href="#">Job Hiring</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?=ROUTE('portal')?>">Log In</a>
