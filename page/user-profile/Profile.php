@@ -12,9 +12,122 @@
                             <h6 class="small font-bold text-muted"><?= AUTH_USER['user_id'] ?></h6>
                             <h4 class="user-name"><?= AUTH_USER['firstname'] . ' ' . AUTH_USER['lastname'] ?></h4>
                             <h6 class="user-email"><?= AUTH_USER['email'] ?></h6>
-                            <div class="flex justify-center mt-3">
-                                <button class="btn btn-primary">Change Picture</button>
+                            <div class="flex justify-center mt-3" id="previewPicture">
+                                <label for="photo" class="btn btn-primary flex items-center justify-center cursor-pointer">
+                                    <i class="bi bi-camera text-md mr-1"></i>
+                                    <span>Upload</span>
+                                </label>
+                                <input type="file" id="photo" accept=".jpg, .jpeg, .png" hidden>
                             </div>
+
+                            <!-- Profile Image Preview (Visible after selecting image) -->
+                            <!-- <div class="mt-3">
+                                <img id="previewImage" src="" alt="Profile Image" class="rounded-full w-32 h-32 object-cover mx-auto" />
+                            </div> -->
+
+                            <!-- Modal -->
+                            <div id="cropModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cropModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="cropModalLabel">Crop Image</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="imageCropContainer" class="d-flex justify-content-center align-items-center bg-light border border-gray-300 rounded" style="max-width: 100%; max-height: 400px; overflow: hidden;">
+                                                <!-- The cropped image will be placed here -->
+                                            </div>
+                                            <div id="responseUploadPhoto" class="mt-3"></div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button id="cropImage" class="btn btn-success">Crop & Save</button>
+                                            <button id="cancelCrop" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <script>
+                                $(document).ready(function() {
+                                    let cropper;
+                                    const cropModal = $('#cropModal');
+                                    const imageCropContainer = document.getElementById('imageCropContainer');
+                                    const previewImage = $('#previewImage'); // This element might not be necessary in this context.
+
+                                    // Handle file input change (when the user selects an image)
+                                    $("#photo").on('change', function() {
+                                        const file = this.files[0];
+                                        if (file) {
+                                            const reader = new FileReader();
+                                            reader.onload = function(event) {
+                                                // Destroy previous cropper instance if it exists
+                                                if (cropper) cropper.destroy();
+
+                                                // Create a new image element for cropping
+                                                const img = new Image();
+                                                img.src = event.target.result;
+                                                img.className = "img-fluid"; // Make sure the image is responsive
+
+                                                // Clear the crop container and append the new image
+                                                imageCropContainer.innerHTML = '';
+                                                imageCropContainer.appendChild(img);
+
+                                                // Initialize Cropper.js for the new image
+                                                cropper = new Cropper(img, {
+                                                    aspectRatio: 1, // Make sure the image is cropped as a square
+                                                    viewMode: 2, // Ensures the crop area is fully visible
+                                                    responsive: true, // Make sure it adjusts on screen size changes
+                                                });
+
+                                                // Show the modal for cropping
+                                                cropModal.modal('show');
+                                            };
+                                            reader.readAsDataURL(file);
+                                        } else {
+                                            alert("Please select a valid image file.");
+                                        }
+                                    });
+
+                                    // Handle crop image confirmation (when the user clicks 'Crop & Save')
+                                    $("#cropImage").click(function() {
+                                        const btn = $(this);
+                                        const originalText = btn.text();
+                                        btn.text('Processing...').prop('disabled', true);
+
+                                        const canvas = cropper.getCroppedCanvas({
+                                            width: 200,
+                                            height: 200,
+                                        });
+
+                                        const croppedImage = canvas.toDataURL(); // Get the cropped image as base64
+
+                                        // Send the cropped image to the server via AJAX
+                                        $.ajax({
+                                            url: "<?= Route('api/user-profile/update_photo.php'); ?>", // Ensure the correct path
+                                            type: "POST",
+                                            data: {
+                                                image: croppedImage // Send the base64 image to the server
+                                            },
+                                            success: function(res) {
+                                                previewImage.attr('src', croppedImage); // Update the profile image preview
+                                                btn.text(originalText).prop('disabled', false); // Reset button text and disable state
+                                                $('#responseUploadPhoto').html(res); // Show the response message
+                                                cropModal.modal('hide'); // Hide the modal after successful upload
+                                            },
+                                            error: function() {
+                                                alert("An error occurred while saving the image.");
+                                                btn.text(originalText).prop('disabled', false); // Reset button text and state
+                                            }
+                                        });
+                                    });
+
+                                    // Cancel cropping
+                                    $("#cancelCrop").click(function() {
+                                        cropModal.modal('hide'); // Use Bootstrap's modal hide method
+                                        if (cropper) cropper.destroy(); // Destroy the Cropper instance
+                                    });
+                                });
+                            </script>
+
                         </div>
                     </div>
                 </div>

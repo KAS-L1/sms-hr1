@@ -1,14 +1,15 @@
 <?php
 
-define("USER_IMAGE", DOMAIN."/upload/user/".AUTH_USER['image']);
+define("USER_IMAGE", DOMAIN."/upload/profile/".AUTH_USER['image']);
 
 
 function UserImage($user){
     return DOMAIN."/upload/user/".$user;
 }
 
-function UserAvatar(){
-    return '<img src='.USER_IMAGE.' class="rounded-circle" alt="user-image" />';
+function UserAvatar()
+{
+    return '<img src="' . (USER_IMAGE ? USER_IMAGE : Route('upload/user/default.png')) . '" class="rounded-circle" alt="image" id="profileImage" />';
 }
 
 function Loading($text = null){

@@ -1,6 +1,7 @@
 <?php require("../../app/init.php") ?>
 <?php require("../auth/auth.php") ?>
 <?php
+
 // Check if the image data was received via POST
 if (isset($_POST['image'])) {
     // The image data is received as a base64 encoded string
