@@ -36,7 +36,7 @@
                     <tr>
                         <td>Description</td>
                         <td>
-                            <?= Input('text', 'description', null, null, null, 'required'); ?>
+                            <textarea name="description" class="form-control" required></textarea>
                         </td>
                     </tr>
                     <tr>
