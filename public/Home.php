@@ -44,6 +44,11 @@
             padding: 15px 30px;
             border-radius: 50px;
             margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .apply-btn:hover {
+            background-color: #e60000;
         }
 
         .nav-link {
@@ -58,6 +63,14 @@
         .navbar-brand img {
             width: 50px;
             height: 50px;
+            margin-right: 10px;
+            /* Add margin for better alignment */
+        }
+
+        /* Fixing Navbar for mobile */
+        .navbar-collapse {
+            justify-content: flex-end;
+            /* Align the menu items to the right on mobile */
         }
 
         /* Responsive adjustments for the container */
@@ -68,9 +81,35 @@
 
             .landing-page p {
                 font-size: 1rem;
+                margin-bottom: 20px;
+                /* Added some space below the paragraph */
+            }
+
+            .apply-btn {
+                font-size: 16px;
+                padding: 12px 25px;
+            }
+
+            /* Navbar adjustments for mobile */
+            .navbar-collapse {
+                text-align: center;
+            }
+
+            .navbar-nav {
+                width: 100%;
+            }
+
+            .navbar-nav .nav-item {
+                padding: 5px 0;
+            }
+
+            /* Adjusting container padding for mobile */
+            .container {
+                padding: 15px;
             }
         }
     </style>
+
 </head>
 
 <body>
@@ -95,7 +134,7 @@
                             <a class="nav-link" href="#">Job Hiring</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=ROUTE('portal')?>">Log In</a>
+                            <a class="nav-link" href="<?= ROUTE('portal') ?>">Log In</a>
                         </li>
                     </ul>
                 </div>
