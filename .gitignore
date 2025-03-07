@@ -2,5 +2,7 @@
 .env
 vendor/
 upload/user/*
+upload/job/*
 
 !upload/user/default.png
+!upload/job/default.png
