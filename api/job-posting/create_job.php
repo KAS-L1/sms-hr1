@@ -3,11 +3,11 @@ require("../../app/init.php");
 require("../auth/auth.php");
 
 // Validate input fields
-$title = $_POST['title'] ?? '';
-$school = $_POST['school'] ?? '';
-$location = $_POST['location'] ?? '';
-$description = $_POST['description'] ?? '';
-$image = $_FILES['image'] ?? null; // Changed from $_POST to $_FILES for file upload
+$title = $DB->ESCAPE($_POST['title'] ?? '');
+$school = $DB->ESCAPE($_POST['school'] ?? '');
+$location = $DB->ESCAPE($_POST['location'] ?? '');
+$description = $DB->ESCAPE($_POST['description'] ?? '');
+$image = $DB->ESCAPE($_FILES['image'] ?? null); // Changed from $_POST to $_FILES for file upload
 
 // Begin Transaction
 $DB->DB->begin_transaction();
