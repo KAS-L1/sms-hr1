@@ -44,12 +44,6 @@ $job = $DB->SELECT_ONE_WHERE("jobs", "*", ["job_id" => $get_job_id]);
                         </td>
                     </tr>
                     <tr>
-                        <td>Location</td>
-                        <td>
-                            <?= Input('text', 'location', $job['location'], null, null, 'required'); ?>
-                        </td>
-                    </tr>
-                    <tr>
                         <td>Description</td>
                         <td>
                             <textarea rows="4" name="description" class="form-control" required><?= $job['description'] ?></textarea>
