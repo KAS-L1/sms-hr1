@@ -7,7 +7,7 @@ $title = $DB->ESCAPE($_POST['title'] ?? '');
 $school = $DB->ESCAPE($_POST['school'] ?? '');
 $location = $DB->ESCAPE($_POST['location'] ?? '');
 $description = $DB->ESCAPE($_POST['description'] ?? '');
-$image = $DB->ESCAPE($_FILES['image'] ?? null); // Changed from $_POST to $_FILES for file upload
+$image = $_FILES['image']; // Changed from $_POST to $_FILES for file upload
 
 // Begin Transaction
 $DB->DB->begin_transaction();
