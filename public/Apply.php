@@ -1,15 +1,15 @@
-<?php 
-    $job_id = $_GET['jobid'] ?? null;
-    $job = $DB->SELECT_ONE_WHERE("jobs", "*", ["job_id" => $job_id]);
+<?php
+$job_id = $_GET['jobid'] ?? null;
+$job = $DB->SELECT_ONE_WHERE("jobs", "*", ["job_id" => $job_id]);
 ?>
 
 <?php include_once("public/_template/Header.php") ?>
 
 <div class="container">
-    <div clas="row">
+    <div class="row">
         <div class="col-md-12">
             <div style="padding: 10rem 0;">
-        
+
                 <div class="row">
                     <div class="col-md-12">
 
@@ -18,38 +18,180 @@
                                 <h2 class="fw-bold">HR ADMISSION</h2>
                             </div>
                             <div class="card-body py-4">
-                                <h3 class="fw-bolder text-center"><?=$job['title']?></h3>
-                                
+                                <h3 class="fw-bolder text-center"><?= $job['title'] ?></h3>
+
                                 <div class="row mt-4">
-                                    
+
                                     <div class="col-md-8">
                                         <div class="card card-body card__round shadow">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="mb-2">Lastname <?=Required()?></label>
-                                                        <input type="text" name="lastname" class="form-control">
+                                            <form id="admissionForm">
+                                                <div class="row">
+                                                    <h1>Basic Information</h1>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="mb-2">Lastname: <?= Required() ?></label>
+                                                            <input type="text" name="lastname" class="form-control mb-5" required>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="mb-2">Lastname <?=Required()?></label>
-                                                        <input type="text" name="lastname" class="form-control">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="mb-2">Firstname: <?= Required() ?></label>
+                                                            <input type="text" name="firstname" class="form-control mb-5" required>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="mb-2">Lastname <?=Required()?></label>
-                                                        <input type="text" name="lastname" class="form-control">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="mb-2">Middlename: <?= Required() ?></label>
+                                                            <input type="text" name="middlename" class="form-control mb-5" required>
+                                                        </div>
                                                     </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="mb-2">Gender: <?= Required() ?></label>
+                                                            <select name="gender" class="form-control mb-5" required>
+                                                                <option value="Male">Male</option>
+                                                                <option value="Female">Female</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="mb-2">Civil Status: <?= Required() ?></label>
+                                                            <select name="civil_status" class="form-control mb-5" required>
+                                                                <option value="Single">Single</option>
+                                                                <option value="Married">Married</option>
+                                                                <option value="Widowed">Widowed</option>
+                                                                <option value="Separated">Separated</option>
+                                                                <option value="Divorced">Divorced</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="mb-2">Religion: <?= Required() ?></label>
+                                                            <input type="text" name="religion" class="form-control mb-5" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="mb-2">Birthday: <?= Required() ?></label>
+                                                            <input type="date" name="birthday" class="form-control mb-5" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="mb-2">Email: <?= Required() ?></label>
+                                                            <input type="email" name="email" class="form-control mb-5" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="mb-2">Contact #: <?= Required() ?></label>
+                                                            <input type="number" name="contact" class="form-control mb-5" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="mb-2">Address #: <?= Required() ?></label>
+                                                            <input type="text" name="address" class="form-control mb-5" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="mb-2">Barangay: <?= Required() ?></label>
+                                                            <input type="text" name="barangay" class="form-control mb-5" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="mb-2">Municipality/City: <?= Required() ?></label>
+                                                            <input type="text" name="city" class="form-control mb-5" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="mb-2">File Upload <?= Required() ?></label>
+                                                            <input type="file" name="file_upload" class="form-control mb-5" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <button type="submit" id="btnSubmitRequirement" class="btn btn-primary w-100" style="margin-top: 2.00rem !important;">Submit</button>
+                                                    </div>
+                                                    <h3>Notes!!</h3>
+                                                    <p><strong>Application Process Guidelines:</strong></p>
+                                                    <ul class="custom-bullets">
+                                                        <li>Provide valid email address for updates from HR Department.</li>
+                                                        <li>Regularly check email for application instructions, acceptance notifications, and login credentials.</li>
+                                                        <li>Ensure application details are accurate as staff cannot make corrections.</li>
+                                                        <li>Only resubmitted, error-free applications accepted.</li>
+                                                        <li>Confidentiality of information used solely for admissions purposes.</li>
+                                                        <li>Consider online readiness and offer flexibility in choosing a convenient learning modality.</li>
+                                                    </ul>
+
+                                                    <p class="warning-text text-sm mb-3 fs-6">Warning: The Data Privacy Act requires strict protection of personal information, enforced by the National Privacy Commission, and violations may lead to legal consequences.</p>
+
+                                                    <style>
+                                                        .custom-bullets {
+                                                            list-style-type: none;
+                                                            padding-left: 20px;
+                                                        }
+
+                                                        .custom-bullets li {
+                                                            background: none;
+                                                            padding-left: 30px;
+                                                            /* Adjust this to the width of the image */
+                                                        }
+
+                                                        .warning-text {
+                                                            display: block;
+                                                            font-size: 14px;
+                                                            /* Adjust font size */
+                                                            color: #d9534f;
+                                                            /* Red color to indicate warning */
+                                                            white-space: normal;
+                                                            /* Ensure text wraps instead of overflowing */
+                                                            word-wrap: break-word;
+                                                            /* Break long words */
+                                                        }
+
+                                                        /* Green success checkmark styling */
+                                                        .requirements-list {
+                                                            list-style-type: none;
+                                                            padding-left: 20px;
+                                                        }
+
+                                                        .requirements-list li::before {
+                                                            content: '✔';
+                                                            /* Unicode check mark */
+                                                            color: #198754;
+                                                            /* Green color for success */
+                                                            font-size: 18px;
+                                                            /* Adjust size of check mark */
+                                                            padding-right: 10px;
+                                                            /* Add space between check mark and text */
+                                                        }
+                                                    </style>
+
                                                 </div>
-                                            </div>
+                                            </form>
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="card card-body card__round shadow">
-                                            asdsad
+                                            <h5>Requirements</h5>
+                                            <p><strong>Original Copy of the following documents:</strong></p>
+                                            <ul class="requirements-list">
+                                                <li>Photocopy of Diploma</li>
+                                                <li>PSA Authenticated Birth Certificate</li>
+                                                <li>Barangay Clearance</li>
+                                                <li>2"x2" ID Picture (White Background) - 2pcs.</li>
+                                                <li>Philhealth</li>
+                                                <li>Pag-Ibig</li>
+                                                <li>SSS</li>
+                                                <li>Police Clearance</li>
+                                                <li>NBI</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -66,4 +208,3 @@
 </div>
 
 <?php include_once("public/_template/Footer.php") ?>
-
