@@ -13,7 +13,7 @@
 
             <div class="card card-body card__border--hover">
                 <img src="<?= APP_LOGO ?>" alt="College Logo" class="mx-auto d-block mb-3" style="width: 80px;">
-                <h3 class="text-center font-bold mb-4">Login your Account as <?= CAMEL(CHAR($_GET['type'])) ?></h3>
+                <h5 class="text-center font-bold mb-4">Login your Account as <?= CAMEL(CHAR($_GET['type'])) ?></h5>
                 <form id="formLogin">
 
                     <div id="responseLogin"></div>

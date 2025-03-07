@@ -26,6 +26,10 @@
         .btn__round{
             border-radius: 50px !important;
         }
+        .card__round{
+            border-radius: 1rem !important;
+            overflow: hidden;
+        }
         .box__shadow--white {
             box-shadow: 0 15px 25px rgba(255, 255, 255, 0.5);
         }
@@ -34,7 +38,7 @@
         }
     </style>
 
-<body class="bg-light">
+<body class="bg-light" style="background: url('../assets/img/landing.jpg') no-repeat center center fixed; position: relative;">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow">
         <div class="container-fluid">
@@ -70,5 +74,5 @@
         </div>
     </nav>
 
-    <main class="pt-5" style="background: url('../assets/img/landing.jpg') no-repeat center center fixed; position: relative;">
+    <main class="pt-5">
         
