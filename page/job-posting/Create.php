@@ -34,7 +34,7 @@
                     <tr>
                         <td>Image</td>
                         <td>
-                            <?= input('file', 'image', null, null); ?>
+                            <?= input('file', 'image', null, null, null, 'required'); ?>
                         </td>
                     </tr>
                 </table>
