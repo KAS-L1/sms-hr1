@@ -26,7 +26,21 @@ $job = $DB->SELECT_ONE_WHERE("jobs", "*", ["job_id" => $get_job_id]);
                     <tr>
                         <td>School</td>
                         <td>
-                            <?= Input('text', 'school', $job['school'], null, null, 'required'); ?>
+                            <select name="school" class="form-control">
+                                <option value="MV Campus" <?= $job['school'] == 'MV Campus' ? 'selected' : '' ?>>MV Campus</option>
+                                <option value="Main Campus" <?= $job['school'] == 'Main Campus' ? 'selected' : '' ?>>Main Campus</option>
+                                <option value="Bulacan Campus" <?= $job['school'] == 'Bulacan Campus' ? 'selected' : '' ?>>Bulacan Campus</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td>
+                            <select name="location" class="form-control">
+                                <option value="Mv - Topaz Millionaires Village Novaliches, Quezon City, Metro Manila" <?= $job['location'] == 'Mv - Topaz Millionaires Village Novaliches, Quezon City, Metro Manila' ? 'selected' : '' ?>>Mv - Topaz Millionaires Village Novaliches, Quezon City, Metro Manila</option>
+                                <option value="Main - Quirino Hwy, Novaliches, Quezon City, Metro Manila" <?= $job['location'] == 'Main - Quirino Hwy, Novaliches, Quezon City, Metro Manila' ? 'selected' : '' ?>>Main - Quirino Hwy, Novaliches, Quezon City, Metro Manila</option>
+                                <option value="Bulacan - Quirino Hwy, San Jose del Monte City, Bulacan" <?= $job['location'] == 'Bulacan - Quirino Hwy, San Jose del Monte City, Bulacan' ? 'selected' : '' ?>>Bulacan - Quirino Hwy, San Jose del Monte City, Bulacan</option>
+                            </select>
                         </td>
                     </tr>
                     <tr>

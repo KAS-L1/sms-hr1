@@ -16,13 +16,21 @@
                     <tr>
                         <td>School</td>
                         <td>
-                            <?= Input('text', 'school', null, null, null, 'required'); ?>
+                            <select name="school" class="form-control">
+                                <option value="MV Campus">MV Campus</option>
+                                <option value="Main Campus">Main Campus</option>
+                                <option value="Bulacan Campus">Bulacan Campus</option>
+                            </select>
                         </td>
                     </tr>
                     <tr>
                         <td>Location</td>
                         <td>
-                            <?= Input('text', 'location', null, null, null, 'required'); ?>
+                            <select name="location" class="form-control">
+                                <option value="Mv - Topaz Millionaires Village Novaliches, Quezon City, Metro Manila">Mv - Topaz Millionaires Village Novaliches, Quezon City, Metro Manila</option>
+                                <option value="Main - Quirino Hwy, Novaliches, Quezon City, Metro Manila">Main - Quirino Hwy, Novaliches, Quezon City, Metro Manila</option>
+                                <option value="Bulacan - Quirino Hwy, San Jose del Monte City, Bulacan">Bulacan - Quirino Hwy, San Jose del Monte City, Bulacan</option>
+                            </select>
                         </td>
                     </tr>
                     <tr>
