@@ -39,7 +39,7 @@ $jobs = $DB->SELECT("jobs", "*", "ORDER BY created_at DESC");
                         <td class="text-start"><?= $job['description'] ?></td>
                         <td class="text-start">
                             <div class="d-flex align-items-center gap-2">
-                                <img src="<?= DOMAIN . '/upload/job/' . $job['image'] ?>" class="img rounded-circle" width="30" height="30">
+                                <img src="<?= DOMAIN . '/upload/job/' . ($job['image'] ? $job['image'] : 'default.png') ?>" class="img rounded-circle" width="30" height="30">
                             </div>
                         </td>
                         <?php if ($job['status'] == 1) { ?>
