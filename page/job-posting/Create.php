@@ -36,7 +36,7 @@
                     <tr>
                         <td>Description</td>
                         <td>
-                            <textarea name="description" class="form-control" required></textarea>
+                            <textarea rows="4" name="description" class="form-control" required></textarea>
                         </td>
                     </tr>
                     <tr>

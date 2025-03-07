@@ -52,7 +52,7 @@ $job = $DB->SELECT_ONE_WHERE("jobs", "*", ["job_id" => $get_job_id]);
                     <tr>
                         <td>Description</td>
                         <td>
-                            <?= Input('text', 'description', $job['description'], null, null, 'required'); ?>
+                            <textarea rows="4" name="description" class="form-control" required><?= $job['description'] ?></textarea>
                         </td>
                     </tr>
                     <tr>
