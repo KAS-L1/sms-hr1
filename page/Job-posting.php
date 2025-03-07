@@ -4,4 +4,4 @@
  * INDEX PAGE ROUTING
  **/
 
-ViewPage("test", "main");
+ViewPage("job-posting", "list");

@@ -200,3 +200,4 @@ function Button($type, $id, $text, $color, $class = null, $width = null, $attrib
 		</button>
 	<?php
 }
+
