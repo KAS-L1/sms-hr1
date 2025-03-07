@@ -1,1 +1,9 @@
 /* APP GLOBAL CUSTOM STYLING */
+.touchable {
+    cursor: pointer;
+}
+
+.touchable__opacity:hover {
+    cursor: pointer;
+    opacity: 80%;
+}

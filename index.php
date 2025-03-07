@@ -20,6 +20,12 @@ switch ($PAGE) {
         die(include_once("public/Home.php"));
     case "portal":
         die(include_once("public/Portal.php"));
+    case "about":
+        die(include_once("public/About.php"));
+    case "jobs":
+        die(include_once("public/Jobs.php"));
+    case "apply":
+        die(include_once("public/Apply.php"));
     case "login":
         die(include_once("public/Login.php"));
     case "register":
