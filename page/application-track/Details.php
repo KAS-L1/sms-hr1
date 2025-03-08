@@ -127,10 +127,12 @@ if (!$job) {
     // Approve Application
     $('#btnApprove').click(function() {
         const application_id = '<?= $app_id ?>';
+        btnLoading('#btnApprove');
         $.post('<?= ROUTE('api/application/approve.php') ?>', {
             application_id: application_id
         }, function(res) {
             $('#responseApplication').html(res);
+            btnLoadingReset('#btnApprove');
         });
     });
 
@@ -142,11 +144,13 @@ if (!$job) {
     $('#btnRejectConfirm').click(function() {
         const application_id = '<?= $app_id ?>';
         const remarks = $('#rejectRemarks').val();
+        btnLoading('#btnRejectConfirm');
         $.post('<?= ROUTE('api/application/decline.php') ?>', {
             application_id: application_id,
             remarks: remarks
         }, function(res) {
             $('#responseApplication').html(res);
+            btnLoadingReset('#btnRejectConfirm');
             $('#rejectApplicationModal').modal('hide');
         });
     });
