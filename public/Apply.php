@@ -1,6 +1,6 @@
 <?php
-$job_id = $_GET['jobid'] ?? null;
-$job = $DB->SELECT_ONE_WHERE("jobs", "*", ["job_id" => $job_id]);
+    $job_id = $_GET['jobid'] ?? null;
+    $job = $DB->SELECT_ONE_WHERE("jobs", "*", ["job_id" => $job_id]);
 ?>
 
 <?php include_once("public/_template/Header.php") ?>
@@ -23,10 +23,17 @@ $job = $DB->SELECT_ONE_WHERE("jobs", "*", ["job_id" => $job_id]);
                                 <div class="row mt-4">
 
                                     <div class="col">
-                                        <div class="card card-body card__round shadow">
+                                        <div class="">
                                             <form id="admissionForm">
+                                                <input type="hidden" name="job_id" value="<?= $job_id ?>">
                                                 <div class="row">
-                                                    <h1>Basic Information</h1>
+                                                    <h4>Basic Information</h4>
+
+                                                    <div class="py-4">
+                                                        <div>Location: <?= $job['location'] ?></div>
+                                                        <div>Position: <?= $job['position'] ?></div>
+                                                    </div>
+
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label class="mb-2">Lastname: <?= Required() ?></label>
@@ -79,9 +86,9 @@ $job = $DB->SELECT_ONE_WHERE("jobs", "*", ["job_id" => $job_id]);
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <div class="form-group"> <input type="email" name="e
-                                                            <label class=" mb-2">Email: <?= Required() ?></label>
-                                                            mail" class="form-control mb-5" required>
+                                                        <div class="form-group">
+                                                            <label class="mb-2">Email: <?= Required() ?></label>
+                                                            <input type="email" name="email" class="form-control mb-5" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
@@ -111,7 +118,7 @@ $job = $DB->SELECT_ONE_WHERE("jobs", "*", ["job_id" => $job_id]);
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="mb-2">File Upload <?= Required() ?></label>
-                                                            <input type="file" name="file_upload" class="form-control mb-5" required>
+                                                            <input type="file" name="attachment" class="form-control mb-5" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -132,7 +139,7 @@ $job = $DB->SELECT_ONE_WHERE("jobs", "*", ["job_id" => $job_id]);
 
                                                     <style>
                                                         .custom-bullets {
-                                                            list-style-type: none;
+                                                            list-style-type: disc;
                                                             padding-left: 20px;
                                                         }
 
@@ -179,10 +186,9 @@ $job = $DB->SELECT_ONE_WHERE("jobs", "*", ["job_id" => $job_id]);
         e.preventDefault();
         btnLoading('#btnSubmitRequirement');
 
-        var formData = new FormData(this);
-
+        var formData = new FormData(this); // Gather the form data
         $.ajax({
-            url: '<?= ROUTE('api/job-posting/create_job.php'); ?>',
+            url: '<?= ROUTE('api/application/submit_application.php'); ?>', // Endpoint for form submission
             type: 'POST',
             data: formData,
             contentType: false,

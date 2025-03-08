@@ -5,6 +5,7 @@ require("../auth/auth.php");
 // Validate input fields
 $title = $DB->ESCAPE($_POST['title'] ?? '');
 $school = $DB->ESCAPE($_POST['school'] ?? '');
+$position = $DB->ESCAPE($_POST['position'] ?? '');
 $location = $DB->ESCAPE($_POST['location'] ?? '');
 $description = $DB->ESCAPE($_POST['description'] ?? '');
 $image = $_FILES['image']; // Changed from $_POST to $_FILES for file upload
@@ -44,6 +45,7 @@ try {
         "job_id" => $job_id,
         "title" => $title,
         "school" => $school,
+        "position" => $position,
         "location" => $location,
         "description" => $description,
         "image" => $image_path,

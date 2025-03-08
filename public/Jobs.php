@@ -36,6 +36,7 @@ $jobs = $DB->SELECT("jobs", "*");
                                             <h5 class="card-title"><?= $job['title'] ?></h5>
                                             <h6>School Name: <?= $job['school'] ?></h6>
                                             <h6>Location: <?= $job['location'] ?></h6>
+                                            <h6>Position: <?= $job['position'] ?></h6>
                                             <h6 class="mt-4">Job Description:</h6>
                                             <p class="card-text"><?= $job['description'] ?></p>
                                             <?php if ($job['status'] == 1) { ?>

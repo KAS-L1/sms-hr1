@@ -26,6 +26,8 @@ switch ($PAGE) {
         die(include_once("public/Jobs.php"));
     case "apply":
         die(include_once("public/Apply.php"));
+    case "thankyou":
+        die(include_once("public/Thankyou.php"));
     case "login":
         die(include_once("public/Login.php"));
     case "register":

@@ -1,3 +1,8 @@
+<?php
+$positions = $DB->SELECT("positions", "*");
+?>
+
+
 <div class="row">
     <div class="col-md-6 offset-md-3">
         <div class="card card-body">
@@ -20,6 +25,16 @@
                                 <option value="MV Campus">MV Campus</option>
                                 <option value="Main Campus">Main Campus</option>
                                 <option value="Bulacan Campus">Bulacan Campus</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Position</td>
+                        <td>
+                            <select name="position" class="form-control">
+                                <?php foreach($positions as $position){ ?>
+                                <option value="<?= $position['position']; ?>"><?= $position['position']; ?></option>
+                                <?php } ?>
                             </select>
                         </td>
                     </tr>

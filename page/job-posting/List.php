@@ -16,6 +16,7 @@ $jobs = $DB->SELECT("jobs", "*", "ORDER BY created_at DESC");
                     <th class="text-start">Job ID</th>
                     <th class="text-start">Title</th>
                     <th class="text-start">School</th>
+                    <th class="text-start">Posted Position</th>
                     <th class="text-start">Location</th>
                     <th class="text-start">Description</th>
                     <th class="text-start">Image</th>
@@ -36,6 +37,7 @@ $jobs = $DB->SELECT("jobs", "*", "ORDER BY created_at DESC");
                         <td class="text-start"><?= $job['job_id'] ?></td>
                         <td class="text-start"><?= $job['title'] ?></td>
                         <td class="text-start"><?= $job['school'] ?></td>
+                        <td class="text-start"><?= $job['position'] ?></td>
                         <td class="text-start"><?= $job['location'] ?></td>
                         <td class="text-start"><?= $job['description'] ?></td>
                         <td class="text-start">

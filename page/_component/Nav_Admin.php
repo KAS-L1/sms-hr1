@@ -36,7 +36,7 @@ NavItem([
     'icon' => 'bi bi-people',
     'children' => [
         ['label' => 'Job Posting', 'url' => ROUTE('job-posting'), 'icon' => 'bi bi-briefcase'], // Dummy route
-        ['label' => 'Applicant Tracking', 'url' => ROUTE('applicant-tracking'), 'icon' => 'bi bi-person-check'], // Dummy route
+        ['label' => 'Applicant Tracking', 'url' => ROUTE('application-track'), 'icon' => 'bi bi-person-check'], // Dummy route
     ],
 ]);
 ?>

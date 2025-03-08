@@ -38,7 +38,7 @@
         }
     </style>
 
-<body class="bg-light" style="background: url('../assets/img/landing.jpg') no-repeat center center fixed; position: relative;">
+<body class="bg-light" style="background: url('../assets/img/landing.jpg') no-repeat center center fixed; position: relative; background-size: cover;">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow">
         <div class="container-fluid">
