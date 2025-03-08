@@ -22,7 +22,7 @@ $job = $DB->SELECT_ONE_WHERE("jobs", "*", ["job_id" => $job_id]);
 
                                 <div class="row mt-4">
 
-                                    <div class="col-md-8">
+                                    <div class="col">
                                         <div class="card card-body card__round shadow">
                                             <form id="admissionForm">
                                                 <div class="row">
