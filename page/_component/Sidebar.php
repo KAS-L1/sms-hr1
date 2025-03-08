@@ -60,6 +60,9 @@
                         case "Guard":
                             include_once("page/_component/Nav_Guard.php");
                             break;
+                        case "Human Resources":
+                            include_once("page/_component/Nav_HumanResources.php");
+                            break;
                     }
                 ?>
 

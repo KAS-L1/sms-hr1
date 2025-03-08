@@ -80,6 +80,7 @@ $user = $DB->SELECT_ONE_WHERE("users", "*", ["user_id" => $get_user_id]);
                                 <option value="Professor" <?= $user['position'] == 'Professor' ? 'selected' : '' ?>>Professor</option>
                                 <option value="Staff" <?= $user['position'] == 'Staff' ? 'selected' : '' ?>>Staff</option>
                                 <option value="Manager" <?= $user['position'] == 'Manager' ? 'selected' : '' ?>>Manager</option>
+                                <option value="Human Resources" <?= $user['position'] == 'Human Resources' ? 'selected' : '' ?>>Human Resources</option>
                             </select>
                         </td>
                     </tr>

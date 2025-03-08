@@ -90,6 +90,7 @@
                                 <option value="Admin">Admin</option>
                                 <option value="Manager">Manager</option>
                                 <option value="Guard">Guard</option>
+                                <option value="Human Resources">Human Resources</option>
                             </select>
                         </td>
                     </tr>
