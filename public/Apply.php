@@ -7,7 +7,7 @@ $job = $DB->SELECT_ONE_WHERE("jobs", "*", ["job_id" => $job_id]);
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 mt-5">
             <div style="padding: 10rem 0;">
 
                 <div class="row">
@@ -79,9 +79,9 @@ $job = $DB->SELECT_ONE_WHERE("jobs", "*", ["job_id" => $job_id]);
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <label class="mb-2">Email: <?= Required() ?></label>
-                                                            <input type="email" name="email" class="form-control mb-5" required>
+                                                        <div class="form-group"> <input type="email" name="e
+                                                            <label class=" mb-2">Email: <?= Required() ?></label>
+                                                            mail" class="form-control mb-5" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
@@ -157,6 +157,7 @@ $job = $DB->SELECT_ONE_WHERE("jobs", "*", ["job_id" => $job_id]);
 
                                                 </div>
                                             </form>
+                                            <div id="responseAdmissionForm"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -171,5 +172,31 @@ $job = $DB->SELECT_ONE_WHERE("jobs", "*", ["job_id" => $job_id]);
         </div>
     </div>
 </div>
+
+
+<script>
+    $('#admissionForm').submit(function(e) {
+        e.preventDefault();
+        btnLoading('#btnSubmitRequirement');
+
+        var formData = new FormData(this);
+
+        $.ajax({
+            url: '<?= ROUTE('api/job-posting/create_job.php'); ?>',
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(res) {
+                $('#responseAdmissionForm').html(res);
+                btnLoadingReset('#btnSubmitRequirement');
+            },
+            error: function() {
+                $('#responseAdmissionForm').html('<div class="text-red-500">An error occurred. Please try again.</div>');
+                btnLoadingReset('#btnSubmitRequirement');
+            }
+        });
+    });
+</script>
 
 <?php include_once("public/_template/Footer.php") ?>

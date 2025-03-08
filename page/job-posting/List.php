@@ -29,8 +29,9 @@ $jobs = $DB->SELECT("jobs", "*", "ORDER BY created_at DESC");
                 <?php $i = 1;
                 foreach ($jobs as $job) { ?>
                     <tr>
-                        <td class="text-start">
+                        <td class="d-flex gap-2">
                             <a href="<?= ROUTE('job-posting/details?job_id=' . $job['job_id']) ?>" class="btn btn-sm btn-light"><i class="bi bi-eye"></i></a>
+                            <button id="btnDeleteJob" class="btn btn-sm btn-danger" data-job_id="<?= $job['job_id'] ?>"><i class="bi bi-trash"></i></button>
                         </td>
                         <td class="text-start"><?= $job['job_id'] ?></td>
                         <td class="text-start"><?= $job['title'] ?></td>
@@ -55,3 +56,30 @@ $jobs = $DB->SELECT("jobs", "*", "ORDER BY created_at DESC");
         </table>
     </div>
 </div>
+
+<div id="responseDeleteJob"></div>
+
+<script>
+    $(document).on('click', '#btnDeleteJob', function() {
+        const job_id = $(this).data('job_id');
+        const button = this; // Store the context of the button
+        btnLoading(button); // Show loading spinner
+
+        $.post('../api/job-posting/delete_job.php', {
+            job_id: job_id
+        }, function(res) {
+            // Directly use the response HTML from backend (toast message)
+            $('#responseDeleteJob').html(res);
+            // Reset loading spinner after response
+            btnLoadingReset(button);
+            // Optionally, remove the deleted job row from the table
+            if (res.includes('success')) {
+                $(button).closest('tr').remove();
+            }
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            // Handle AJAX error
+            $('#responseDeleteJob').html(`<div class="alert alert-danger">An error occurred: ${errorThrown}</div>`);
+            btnLoadingReset(button);
+        });
+    });
+</script>
