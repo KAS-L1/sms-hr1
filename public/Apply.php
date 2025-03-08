@@ -153,45 +153,10 @@ $job = $DB->SELECT_ONE_WHERE("jobs", "*", ["job_id" => $job_id]);
                                                             word-wrap: break-word;
                                                             /* Break long words */
                                                         }
-
-                                                        /* Green success checkmark styling */
-                                                        .requirements-list {
-                                                            list-style-type: none;
-                                                            padding-left: 20px;
-                                                        }
-
-                                                        .requirements-list li::before {
-                                                            content: '✔';
-                                                            /* Unicode check mark */
-                                                            color: #198754;
-                                                            /* Green color for success */
-                                                            font-size: 18px;
-                                                            /* Adjust size of check mark */
-                                                            padding-right: 10px;
-                                                            /* Add space between check mark and text */
-                                                        }
                                                     </style>
 
                                                 </div>
                                             </form>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <div class="card card-body card__round shadow">
-                                            <h5>Requirements</h5>
-                                            <p><strong>Original Copy of the following documents:</strong></p>
-                                            <ul class="requirements-list">
-                                                <li>Photocopy of Diploma</li>
-                                                <li>PSA Authenticated Birth Certificate</li>
-                                                <li>Barangay Clearance</li>
-                                                <li>2"x2" ID Picture (White Background) - 2pcs.</li>
-                                                <li>Philhealth</li>
-                                                <li>Pag-Ibig</li>
-                                                <li>SSS</li>
-                                                <li>Police Clearance</li>
-                                                <li>NBI</li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
